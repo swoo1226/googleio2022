@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open / Close Dialog</title>
+    <style>
+      body {
+        background-image: url("summercamp.webp");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        position: relative;
+      }
+      dialog {
+        width: 500px;
+        height: 300px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 0px rgb(0, 0, 0);
+        background-color: #ffffff;
+        opacity: 0.8;
+        backdrop-filter: blur(20px);
+        font-weight: bolder;
+      }
+      dialog::backdrop {
+        background-color: #000000;
+        opacity: 0.3;
+        backdrop-filter: blur(150px);
+      }
+      li:hover {
+        text-decoration: underline;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <dialog id="megaDialog" modal-mode="mega">
+      <form method="megaDialog">
+        <p>Hi, I'm a dialog.</p>
+        <button>OK</button>
+      </form>
+    </dialog>
+    <button onclick="megaDialog.showModal()">Open Dialog</button>
+    <div class="list">
+      <ul>
+        <li tabindex onclick="alert(1)">1</li>
+        <li tabindex onclick="alert(2)">2</li>
+        <li tabindex onclick="alert(3)">3</li>
+      </ul>
+    </div>
+  </body>
+</html>

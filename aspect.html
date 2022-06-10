@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aspect Ratio</title>
+    <style>
+      body {
+        box-sizing: border-box;
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        padding: 1rem 2rem;
+      }
+
+      .object-fit {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      .object-fit > li {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      code {
+        font-family: "Roboto Mono", monospace;
+        margin: 0.5rem auto;
+      }
+
+      .object-fit > li > img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .cover {
+        object-fit: cover;
+      }
+
+      .contain {
+        object-fit: contain;
+      }
+
+      .none {
+        object-fit: none;
+      }
+
+      .fill {
+        object-fit: fill;
+      }
+
+      .sponsor-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        list-style: none;
+        gap: 10px;
+      }
+      .sponsor img {
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>object-fit</h2>
+    <ul class="object-fit">
+      <li>
+        <img
+          class="initial"
+          src="https://source.unsplash.com/random/800x600"
+          alt=""
+        />
+        <code>object-fit: initial</code>
+      </li>
+      <li>
+        <img
+          class="cover"
+          src="https://source.unsplash.com/random/800x600"
+          alt=""
+        />
+        <code>object-fit: cover</code>
+      </li>
+      <li>
+        <img
+          class="contain"
+          src="https://source.unsplash.com/random/800x600"
+          alt=""
+        />
+        <code>object-fit: contain</code>
+      </li>
+      <li>
+        <img
+          class="none"
+          src="https://source.unsplash.com/random/800x600"
+          alt=""
+        />
+        <code>object-fit: none</code>
+      </li>
+      <li>
+        <img
+          class="fill"
+          src="https://source.unsplash.com/random/800x600"
+          alt=""
+        />
+        <code>object-fit: fill</code>
+      </li>
+    </ul>
+    <h2>aspect ratio consistency in a grid</h2>
+    <ul class="sponsor-grid">
+      <li class="sponsor">
+        <img src="https://source.unsplash.com/random/800x600" />
+      </li>
+      <li class="sponsor">
+        <img src="https://source.unsplash.com/random/800x600" />
+      </li>
+      <li class="sponsor">
+        <img src="https://source.unsplash.com/random/800x600" />
+      </li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contain Paint</title>
+    <style>
+      .contain_none {
+        contain: none;
+      }
+      .contain_paint {
+        contain: paint;
+      }
+
+      .section {
+        border: 2px dashed black;
+        padding: 0 20px 40px;
+        font-size: 22px;
+      }
+      .box_wrap {
+        overflow: visible;
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px dashed blue;
+      }
+      .box {
+        position: absolute;
+        left: 50px;
+        width: 200px;
+        height: 200px;
+        background: #fff;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="section">
+        <div class="box_wrap contain_paint">
+          contain: paint
+          <div class="box">left:50px</div>
+        </div>
+      </div>
+      <br />
+      <div class="section">
+        <div class="box_wrap">
+          contain: none
+          <div class="box">left:50px</div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </body>
+</html>

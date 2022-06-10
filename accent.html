@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Accent Color</title>
+    <link rel="stylesheet" href='accent.css'/>
+    <script>
+        function changeAccent(newColor) {
+            console.log("newColor", newColor)
+            console.log('document', document.documentElement)
+            document.documentElement.style.accentColor = newColor
+            console.log('document', document.documentElement.style)
+        }
+    </script>
+</head>
+<body>
+    <input type="color" name="" id="" onchange="changeAccent(this.value)"/>
+    <div>
+        <input type="checkbox"></input>
+    </div>
+    <div>
+        <input type="radio" name="accent-radio"></input>
+        <input type="radio" name="accent-radio"></input>
+        <input type="radio" name="accent-radio"></input>
+    </div>
+    <div>
+        <input type="range"/>
+    </div>
+    <div>
+        <progress/>
+    </div>
+</body>
+</html>

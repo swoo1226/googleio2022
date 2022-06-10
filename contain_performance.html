@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contain Performance</title>
+    <style>
+      .contain_strict {
+        contain: strict;
+      }
+      .box {
+        border: 2px dashed black;
+        font-size: 22px;
+        height: 50px;
+      }
+      .btn_area {
+        padding: 20px 0;
+      }
+      .btn_area button {
+        font-size: 22px;
+      }
+      .result_area {
+        position: fixed;
+        overflow-y: auto;
+        overflow-x: hidden;
+        right: 50%;
+        bottom: 0;
+        width: 500px;
+        height: 500px;
+        padding: 10px;
+        box-sizing: border-box;
+        background: #fff;
+        border: 2px solid red;
+        transform: translate(50%);
+      }
+      .result_area div {
+        padding: 3px 0;
+        font-size: 20px;
+      }
+      .result_area div span {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btn_area">
+      <button class="btn_check1">contain none check</button>
+      <button class="btn_check2">contain strict check</button>
+    </div>
+
+    <div class="wrap">
+      <div class="box" id="check_area">box</div>
+    </div>
+
+    <div class="result_area">
+      <h1>결과</h1>
+    </div>
+    <script>
+      $(document).ready(function () {
+        var start, end;
+
+        for (i = 0; i < 5000; i++) {
+          $(".wrap").append('<div class="box">box</div>');
+        }
+
+        $(".btn_check1").on("click", function () {
+          $("#check_area").removeClass().addClass("box");
+
+          document.body.offsetLeft;
+          start = performance.now();
+          $("#check_area").text("contain_none");
+          document.body.offsetLeft;
+          end = performance.now() - start;
+
+          $(".result_area").append(
+            "<div>containt none 소요시간 : " + end + "</div>"
+          );
+        });
+
+        $(".btn_check2").on("click", function () {
+          $("#check_area").removeClass().addClass("box contain_strict");
+
+          document.body.offsetLeft;
+          start = performance.now();
+          $("#check_area").text("contain_strict");
+          document.body.offsetLeft;
+          end = performance.now() - start;
+
+          $(".result_area").append(
+            "<div>containt <span>strict</span> 소요시간 : " + end + "</div>"
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

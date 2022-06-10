@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Original image</h3>
+    <p>Please rollover on image.</p>
+    <img id="origin-img" src="kitten.jpg" />
+    <h3>New Bitmap</h3>
+    <canvas id="mycanvas" width="210" height="210"></canvas>
+
+    <script>
+      window.addEventListener("load", function () {
+        const elOriginImg = document.getElementById("origin-img");
+        const elCanvas = document.getElementById("mycanvas");
+        const context = elCanvas.getContext("2d");
+
+        const elImg = new Image(100, 90);
+        elImg.src = "kitten.jpg";
+        elImg.onload = function () {
+          elOriginImg.addEventListener("mousemove", (e) => {
+            context.clearRect(0, 0, elCanvas.width, elCanvas.height);
+            let sx = e ? e.offsetX : 0;
+            let sy = e ? e.offsetY : 0;
+            createImageBitmap(elImg, sx, sy, 200, 200).then((img) =>
+              context.drawImage(img, 0, 0)
+            );
+          });
+
+          elOriginImg.dispatchEvent(new Event("mousemove"));
+        };
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BFCache</title>
+    <script>
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted) {
+          console.log("This page was restored from the bfcache.");
+        } else {
+          console.log("This page was loaded normally.");
+        }
+      });
+      window.addEventListener("pagehide", (event) => {
+        if (event.persisted === true) {
+          console.log("This page *might* be entering the bfcache.");
+        } else {
+          console.log("This page will unload normally and be discarded.");
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <a href="https://naver.com">Link</a>
+  </body>
+</html>

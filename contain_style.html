@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contain Style</title>
+    <style>
+      .contain_style {
+        contain: style;
+      }
+      .wrap {
+        border: 2px dashed black;
+        padding: 0 20px;
+        counter-reset: section;
+      }
+      h1::before {
+        content: counter(section) ". ";
+        counter-increment: section;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>title</h1>
+      <h1>title</h1>
+      <h1>title</h1>
+      <h1>title</h1>
+    </div>
+    <br />
+    <div class="wrap contain_style">
+      <h1>contain title</h1>
+      <h1>contain title</h1>
+      <h1>contain title</h1>
+      <h1>contain title</h1>
+    </div>
+  </body>
+</html>

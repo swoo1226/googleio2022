@@ -1,0 +1,25 @@
+@layer framework, base, utilities;
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css")
+layer(framework);
+
+@layer base {
+  .btn {
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    background-color: red;
+    padding: 0.5em 1em;
+  }
+
+  .small-btns > .btn {
+    padding: 0.1em 0.25em;
+    margin: 0.5rem 0;
+  }
+}
+
+@layer utilities {
+  .p-1 {
+    padding: 1rem;
+  }
+}
